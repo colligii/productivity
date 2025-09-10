@@ -5,7 +5,12 @@ const mainSel = document.querySelector('#main');
 tasks.onChange(mainSelBg)
 
 function mainSelBg() {
-    mainSel.style.background = calculateColor(tasks.getDataStructuredClone().length || 1, tasks.getDataStructuredClone().filter(task => task.checkedDate).length);
+    const completedTasks = tasks.getDataStructuredClone().filter(task => task.checkedDate).length;
+    const allTasks = tasks.getDataStructuredClone().length;
+    mainSel.style.background = calculateColor(allTasks || 1, completedTasks);
+    if(allTasks && allTasks === completedTasks) {
+        alert('Todas as tasks foram completas');
+    }
 }
 
 function renderScreen() {
