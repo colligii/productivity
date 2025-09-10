@@ -26,30 +26,16 @@ function calculateColor(total, completed) {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-tasks.onAdd(() => {
-
-})
-
-
 function renderScreen() {
     const params = new URLSearchParams(window.location.search);
     const screen = params.get('screen');
     
     if(!screen && !tasks.getDataStructuredClone()?.length) {
-        mainSel.innerHTML = TaskView.withoutTasks();
-
-        mainSel.querySelector('.add-btn').addEventListener('click', () => {
-            history.pushState({}, "", "?screen=task-form");
-            renderScreen();
-        })
+        TaskView.withoutTasks(mainSel);
+    } else if(!screen && tasks.getDataStructuredClone()?.length) {
+        TaskView.getTaskList(tasks.getDataStructuredClone(), mainSel);
     } else if(screen === 'task-form') {
-        mainSel.innerHTML = TaskView.tasksForm();
-
-        mainSel.querySelector('form').addEventListener('submit', (event) => {
-            event.preventDefault();
-            const data = TaskView.getTaskData();
-            console.log(data);
-        })
+        TaskView.tasksForm(mainSel, tasks, renderScreen);
     } else {
         history.pushState({}, "", window.location.pathname);
         renderScreen();
@@ -58,5 +44,4 @@ function renderScreen() {
     mainSel.style.background = calculateColor(1,0);
 }
 
-if(!tasks.getDataStructuredClone()?.length)
-    renderScreen();
+renderScreen();

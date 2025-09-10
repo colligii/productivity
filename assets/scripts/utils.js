@@ -5,3 +5,8 @@ function generateUUID() {
     return v.toString(16);
   });
 }
+
+function getTodayDate() {
+    const date = new Date();
+    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+}

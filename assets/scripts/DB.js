@@ -4,7 +4,7 @@ class LocalDataBase {
         this.data = this.loadData();
     }
 
-    loadData(key) {
+    loadData() {
         try {
             const data = localStorage.getItem(this.key) ?? [];
             return JSON.parse(data);
@@ -19,12 +19,7 @@ class LocalDataBase {
 
     commitChanges(data) {
         this.data = data;
+        console.log(this.data);
         localStorage.setItem(this.key, JSON.stringify(data))
-        if(this.cb)
-            this.cb();
-    }
-
-    onAdd(cb) {
-        this.cb = cb;
     }
 }
