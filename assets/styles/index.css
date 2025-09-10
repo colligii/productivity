@@ -1,4 +1,41 @@
-#sector {
+* {
+    font-family: sans-serif !important;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+html, body, #main {
+    height: 100%;
+}
+
+#without-tasks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    gap: 4px;
+    animation: comeIn 200ms linear;
+}
+
+.add-btn {
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgb(112, 112, 230);
+    color: white;
+}
+
+@keyframes comeIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

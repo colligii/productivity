@@ -1,3 +1,12 @@
 const tasks = new LocalDataBase('tasks');
 
-console.log(tasks.getDataStructuredClone())
+const mainSel = document.querySelector('#main');
+
+if(!tasks.getDataStructuredClone()?.length) {
+    mainSel.innerHTML = `
+        <div id="without-tasks">
+            <h1>Without tasks</h1>
+            <button class="add-btn">Add Tasks</button>
+        </div>
+    `
+}
