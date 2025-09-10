@@ -55,7 +55,7 @@ class TaskView {
         `
     }
 
-    static getTaskList(taskList, mainSel) {
+    static getTaskList(taskList, mainSel, tasks) {
         const div = document.createElement('div');
 
         for(let task of taskList) {
@@ -64,8 +64,13 @@ class TaskView {
             const checkBox = document.createElement('input');
             checkBox.type = 'checkbox';
             checkBox.id = task.name;
+            checkBox.addEventListener('change', () => {
+                task.checkedDate = checkBox.checked ? getTodayDate() : null;
+                tasks.commitChanges(taskList);
+            })
             taskName.setAttribute('for', task.name);
-            checkBox.value = task.checkedDate === getTodayDate();
+            checkBox.checked = task.checkedDate === getTodayDate();
+            console.log(checkBox.value)
             taskName.textContent = task.name;
             taskWrapper.append(checkBox, taskName)
             div.append(taskWrapper);

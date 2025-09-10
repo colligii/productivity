@@ -19,7 +19,12 @@ class LocalDataBase {
 
     commitChanges(data) {
         this.data = data;
-        console.log(this.data);
         localStorage.setItem(this.key, JSON.stringify(data))
+        if(this.onChangeCb)
+            this.onChangeCb()
+    }
+
+    onChange(onChangeCb) {
+        this.onChangeCb = onChangeCb;
     }
 }
