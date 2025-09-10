@@ -70,7 +70,6 @@ class TaskView {
             })
             taskName.setAttribute('for', task.name);
             checkBox.checked = task.checkedDate === getTodayDate();
-            console.log(checkBox.value)
             taskName.textContent = task.name;
             taskWrapper.append(checkBox, taskName)
             div.append(taskWrapper);
