@@ -9,4 +9,6 @@ if(!tasks.getDataStructuredClone()?.length) {
             <button class="add-btn">Add Tasks</button>
         </div>
     `
+
+    mainSel.style.background = "#e95454ff";
 }

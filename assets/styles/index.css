@@ -27,6 +27,7 @@ html, body, #main {
     border: none;
     background: rgb(112, 112, 230);
     color: white;
+    cursor: pointer;
 }
 
 @keyframes comeIn {
