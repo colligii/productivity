@@ -20,5 +20,11 @@ class LocalDataBase {
     commitChanges(data) {
         this.data = data;
         localStorage.setItem(this.key, JSON.stringify(data))
+        if(this.cb)
+            this.cb();
+    }
+
+    onAdd(cb) {
+        this.cb = cb;
     }
 }
