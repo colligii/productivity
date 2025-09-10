@@ -49,7 +49,7 @@ class TaskView {
     static preTaskList() {
         return `
             <div>
-                <button class="add-btn">Add Tasks</button>
+                <button class="add-btn task-list">Add Tasks</button>
                 <div id="task-container"></div>
             </div>
         `

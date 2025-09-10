@@ -54,6 +54,20 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+.task-list {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 @keyframes comeIn {
     from {
         transform: scale(0.7);
