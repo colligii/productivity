@@ -5,7 +5,7 @@ const mainSel = document.querySelector('#main');
 tasks.onChange(mainSelBg)
 
 function mainSelBg() {
-    const completedTasks = tasks.getDataStructuredClone().filter(task => task.checkedDate).length;
+    const completedTasks = tasks.getDataStructuredClone().filter(task => task.checkedDate === getTodayDate()).length;
     const allTasks = tasks.getDataStructuredClone().length;
     mainSel.style.background = calculateColor(allTasks || 1, completedTasks);
     if(allTasks && allTasks === completedTasks) {
